@@ -238,6 +238,7 @@ let file = process.argv[2];
 
 if (file === undefined) {
   console.log('Give a Befunge93 file as input.');
+  return;
 }
 
 console.log(`${file}\n`);
