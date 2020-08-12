@@ -1,6 +1,6 @@
 # bef93js
 
-A small Befunge-93 interpreter made in JavaScript for NodeJS made in 4 hours.
+A small Befunge-93 interpreter made in JavaScript (also featuring a NodeJS wrapper) made in 4 hours.
 
 [Befunge on the Esolangs Wiki](https://esolangs.org/wiki/Befunge)
 
