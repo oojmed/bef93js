@@ -1,8 +1,8 @@
-export let version = '0.9.0';
+export let version = '0.9.1';
 
 let internalHaltChecks = {};
 
-/*function bold(text) {
+function bold(text) {
   return `\x1b[1m${text}\x1b[0m`;
 }
 
@@ -18,7 +18,7 @@ function showCode(input, pnt) {
   final += input.substr(pos + 1);
 
   return final;
-}*/
+}
 
 function popStack(stack) {
   const v = stack.pop();
@@ -41,7 +41,7 @@ export async function interpret(input, {getInputChar, getInputInt, sendOutput}, 
     let ab;
 
     //console.log(showCode(input, pnt), dir, stack);
-    //await new Promise(resolve => setTimeout(resolve, 300));
+    //await new Promise(resolve => setTimeout(resolve, 30));
 
     if (skip !== true && !stringMode) switch (cur) {
       case '+':
@@ -165,7 +165,7 @@ export async function interpret(input, {getInputChar, getInputInt, sendOutput}, 
         break;
     }
 
-    if (commandNumber % 10 === 0) await new Promise(res => setTimeout(res, 0)); // Allows halting / cancelling
+    // if (commandNumber % 10 === 0) await new Promise(res => setTimeout(res, 0)); // Allows halting / cancelling via Ctrl+C
     if (id !== undefined && internalHaltChecks[id] === true) break;
   }
 
