@@ -1,4 +1,4 @@
-export let version = '0.9.1';
+export let version = '1.0.0';
 
 let internalHaltChecks = {};
 
@@ -124,8 +124,20 @@ export async function interpret(input, {getInputChar, getInputInt, sendOutput}, 
         break;
       
       case 'g':
+        let y1 = popStack(stack);
+        let x1 = popStack(stack);
+
+        stack.push(input.charCodeAt(pntToPos([x1, y1], input)));
         break;
       case 'p':
+        let y2 = popStack(stack);
+        let x2 = popStack(stack);
+
+        let v = String.fromCharCode(popStack() % 256);
+
+        let index = pntToPos([x2, y2], input);
+
+        input = input.substr(0, index) + v + input.substr(index + 1);
         break;
       
       case '&':
